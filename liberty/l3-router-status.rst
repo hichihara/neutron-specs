@@ -16,22 +16,36 @@ actual status of the router.
 Problem Description
 ===================
 
+Neutron l3router status is set ACTIVE only. The status value is always
+ACTIVE if even l3agent failed to process a router which hosted by the
+l3agent.
 
 Proposed Change
 ===============
 
+This proposal modify l3agent so that l3agent can change router status
+confrming with actual process.
+
+The proposal adds PENDING_UPDATE and ERROR to router status. The
+router includes DVR and HA router.
+
+* PENDING_UPDATE: Status under updating router
+* ERROR: Status which l3agent failed to process
 
 Data Model Impact
 -----------------
 
+None
 
 REST API Impact
 ---------------
 
+None
 
 Security Impact
 ---------------
 
+None
 
 Notifications Impact
 --------------------
@@ -40,30 +54,37 @@ Notifications Impact
 Other End User Impact
 ---------------------
 
+None
 
 Performance Impact
 ------------------
 
+None
 
 IPv6 Impact
 -----------
 
+None
 
 Other Deployer Impact
 ---------------------
 
+None
 
 Developer Impact
 ----------------
 
+None
 
 Community Impact
 ----------------
 
+None
 
 Alternatives
 ------------
 
+None
 
 Implementation
 ==============
@@ -71,6 +92,7 @@ Implementation
 Assignee(s)
 -----------
 
+ichihara-hirofumi
 
 Work Items
 ----------
@@ -79,6 +101,7 @@ Work Items
 Dependencies
 ============
 
+None
 
 Testing
 =======
