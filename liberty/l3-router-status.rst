@@ -61,29 +61,29 @@ Users can check router status by GET API.
 
 ::
 
-+-----------------------+--------------------------------------+
-| Field                 | Value                                |
-+-----------------------+--------------------------------------+
-| admin_state_up        | True                                 |
-| external_gateway_info |                                      |
-| id                    | 9e8eec98-44a1-4a9c-9ab9-eef08f960772 |
-| name                  | router                               |
-| routes                |                                      |
-| status                | PENDING_UPDATE                       |
-| tenant_id             | 361a3a2efa3842a8b8153cf83a915a6d     |
-+-----------------------+--------------------------------------+
+ +-----------------------+--------------------------------------+
+ | Field                 | Value                                |
+ +-----------------------+--------------------------------------+
+ | admin_state_up        | True                                 |
+ | external_gateway_info |                                      |
+ | id                    | 9e8eec98-44a1-4a9c-9ab9-eef08f960772 |
+ | name                  | router                               |
+ | routes                |                                      |
+ | status                | PENDING_UPDATE                       |
+ | tenant_id             | 361a3a2efa3842a8b8153cf83a915a6d     |
+ +-----------------------+--------------------------------------+
 
-+-----------------------+--------------------------------------+
-| Field                 | Value                                |
-+-----------------------+--------------------------------------+
-| admin_state_up        | True                                 |
-| external_gateway_info |                                      |
-| id                    | 9e8eec98-44a1-4a9c-9ab9-eef08f960772 |
-| name                  | router                               |
-| routes                |                                      |
-| status                | ERROR                                |
-| tenant_id             | 361a3a2efa3842a8b8153cf83a915a6d     |
-+-----------------------+--------------------------------------+
+ +-----------------------+--------------------------------------+
+ | Field                 | Value                                |
+ +-----------------------+--------------------------------------+
+ | admin_state_up        | True                                 |
+ | external_gateway_info |                                      |
+ | id                    | 9e8eec98-44a1-4a9c-9ab9-eef08f960772 |
+ | name                  | router                               |
+ | routes                |                                      |
+ | status                | ERROR                                |
+ | tenant_id             | 361a3a2efa3842a8b8153cf83a915a6d     |
+ +-----------------------+--------------------------------------+
 
 This proposal also assumes a case of DVR router and HA router. In the
 situation, multiple l3agents manage a router which shares DB. Some l3agents
