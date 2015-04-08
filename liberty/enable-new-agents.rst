@@ -26,18 +26,19 @@ with admin_state_up=False. Neutron always starts agent with
 admin_state_up=True. Nova and Cinder has the setting of "enable_new_services"
 in each conf to disable the initial service status to archive this.
 
-Neutron also has a problem for the maintenance scenario. Neutron can prevent
-all users to create the resources on the node by agent's admin_state_up=False,
-but Neutron cannot allow admin user only to create the resources. Admin user
-generally has privilege of doing everything. It's strange that admin user
-cannot create resources on node set admin_state_up=False.
+Neutron also has a problem for the maintenance scenario. Neutron can
+prevent all users to create the resources on the agent with
+admin_state_up=False, but Neutron usualy cannot allow admin user only
+to create the resources. Currently, if
+enable_services_on_agents_with_admin_state_down configuration
+parameter is True, admin can create the resources on the agent.
 
 Proposed Change
 ===============
 
-This proposal adds enable_new_agents config for operator maintenance to
-l3-agent and dhcp-agent in network node. Neutron agent's admin_state_up is
-controlled by this config while starting.
+This proposal adds enable_new_agents config for operator maintenance
+to l3-agent and dhcp-agent in network nodes. Neutron agent's
+admin_state_up is controlled by this config while starting.
 
 * Neutron agent starts with admin_state_up=True when enable_new_agents=True.
   This behaviour is general.
@@ -47,10 +48,25 @@ controlled by this config while starting.
 The default value is True because this proposal don't intend to change a
 traditional behaviour.
 
-The proposal also changes a behaviour with admin_state_up=False. Neutron
-currently prevents all users include admin creating resources on a agent with
-admin_state_up=False. The proposal changes the behaviour so that admin users
-can create resources on the agent.
+The proposal also presupposes that
+enable_services_on_agents_with_admin_state_down is True in Neutron
+servers.
+
+The following is maintenance scenario.
+
+Precondition: Neutron servers run with
+enable_services_on_agents_with_admin_state_down=True.
+
+1. Admin prepares a new network node.
+2. Admin adds enable_new_agents=False to l3-agent and dhcp-agent config
+   and starts their agents.
+3. They run with admin_state_up=False.
+4. Admin creates network resources on the agents.
+5. Admin creates VM connected the network resources, then admin
+   confirms the capability.
+6. Admin deletes all resources and update agents to be
+   admin_state_up=True after the test.
+
 
 Data Model Impact
 -----------------
@@ -120,7 +136,6 @@ ichihara-hirofumi
 Work Items
 ----------
 
-* Modify a behaviour of agents with admin_state_up=False
 * Add enable_new_agents config and the implements
 
 Dependencies
