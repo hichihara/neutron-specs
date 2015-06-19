@@ -158,18 +158,18 @@ Availability_zone attribute to Agent
 REST API Impact
 ---------------
 
-* /agents
+/agents  
 'availability_zone' key is added to 'configurations' attribute
 (dict). Note that 'configurations' attribute is read only.
 
-* /networks and /routers
+/networks and /routers  
 The following attribute is added.
 
 .. csv-table:: New attribute
     :header: Attribute Name,Type,Access,Default Value,Validation Conversion,Description
     availability_zones,list of string,"R, all",[],list of string,list of human-readable name
 
-* /availability_zones
+/availability_zones  
 The extension introduces a new availability_zone API resource. Only GET is available.
 
 .. csv-table::
