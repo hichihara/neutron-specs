@@ -109,6 +109,7 @@ None
 Notifications Impact
 --------------------
 
+None
 
 Other End User Impact
 ---------------------
@@ -156,6 +157,7 @@ ichihara-hirofumi
 Work Items
 ----------
 
+TODO
 
 Dependencies
 ============
@@ -168,14 +170,17 @@ Testing
 Tempest Tests
 -------------
 
+None
 
 Functional Tests
 ----------------
 
+Add tests, which ensure router status is updated properly.
 
 API Tests
 ---------
 
+None
 
 Documentation Impact
 ====================
@@ -183,10 +188,12 @@ Documentation Impact
 User Documentation
 ------------------
 
+None
 
 Developer Documentation
 -----------------------
 
+None
 
 References
 ==========
